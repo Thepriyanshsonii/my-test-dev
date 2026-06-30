@@ -1,3 +1,13 @@
-- name: Test PAT access
-  run: |
-    git ls-remote https://x-access-token:${{ secrets.PROD_REPO_TOKEN }}@github.com/Thepriyanshsonii/my-test-prod.git
+name: Promote Dev to Prod
+
+on:
+  workflow_dispatch:
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test PAT access
+        run: |
+          git ls-remote https://x-access-token:${{ secrets.PROD_REPO_TOKEN }}@github.com/Thepriyanshsonii/my-test-prod.git
